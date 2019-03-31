@@ -1,21 +1,41 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<nav class="navbar navbar-expand" *ngIf="currentUser">
+<!-- <nav class="navbar navbar-expand" *ngIf="currentUser">
     <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/">Home</a>
-        <a class="nav-item nav-link" routerLink="/items">MyItems</a>
-
+        <a class="nav-item nav-link" routerLink="/start">Home</a>
+        <a class="nav-item nav-link" routerLink="/items">My Items</a>
         <a class="nav-item nav-link" (click)="logout()">Logout</a>
     </div>
-</nav>
+</nav> -->
+
+<div *ngIf="currentUser">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>list</mat-icon>
+      <span>Hero List</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>accessibility_new</mat-icon>
+      <span>My Heroes</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>directions_run</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</div>
+
 
 <!-- main app container -->
 <div class="jumbotron">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 offset-sm-3">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <router-outlet></router-outlet>
+      </div>
     </div>
+  </div>
 </div>\
