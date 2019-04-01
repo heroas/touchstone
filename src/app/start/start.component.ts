@@ -13,7 +13,7 @@ export class StartComponent implements OnInit {
   heroesList: Hero[]
   constructor(root:AppComponent,private userService: UserService,private snackBar: MatSnackBar) {
     this.heroesList = HEROES
-    root.page = 'Hero List'
+    root.page = 'Available Heroes'
    }
 
   ngOnInit() {
