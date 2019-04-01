@@ -12,21 +12,25 @@ export class AppComponent {
   title = 'project-touchstone';
 
   currentUser: User;
-  page:string;
+  page: string;
 
   constructor(
-      private router: Router,
-      private authenticationService: AuthenticationService
+    private router: Router,
+    private authenticationService: AuthenticationService
   ) {
-      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
-  public setPageTitle(pageName:string){
+  public setPageTitle(pageName: string) {
     this.page = pageName
   }
 
   logout() {
-      this.authenticationService.logout();
-      this.router.navigate(['/login']);
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
+  }
+
+  navigate(route: string) {
+    this.router.navigate([route]);
   }
 }

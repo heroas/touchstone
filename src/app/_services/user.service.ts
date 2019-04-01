@@ -20,7 +20,6 @@ export class UserService {
   }
 
   addHero(hero:Hero){
-    console.log(hero)
     let currentUser:User;
     this.authenticationService.currentUser.subscribe(x => currentUser = x);
 
@@ -28,8 +27,6 @@ export class UserService {
       currentUser.heroes = []
 
     currentUser.heroes.push(hero);
-
-    console.log(this.users[0].heroes)
 
     this.users.splice(this.users.findIndex(function(i){
         return i.id === currentUser.id;
@@ -40,6 +37,16 @@ export class UserService {
     localStorage.setItem('users', JSON.stringify(this.users));
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
 
+  }
+
+  getHeroes(){
+    let currentUser:User;
+    this.authenticationService.currentUser.subscribe(x => currentUser = x);
+
+    if(!currentUser.heroes)
+      currentUser.heroes = []
+      
+    return currentUser.heroes;
   }
 
 }

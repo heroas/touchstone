@@ -14,11 +14,11 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item (click)="navigate('/start')">
           <mat-icon>list</mat-icon>
           <span>Hero List</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="navigate('/my-heroes')">
           <mat-icon>accessibility_new</mat-icon>
           <span>My Heroes</span>
         </button>

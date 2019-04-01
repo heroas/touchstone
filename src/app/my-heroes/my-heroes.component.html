@@ -1,0 +1,17 @@
+<h2>
+  Your Hired Heroes
+</h2>
+<p>
+  Totall price: {{total}} <mat-icon>money</mat-icon>
+</p>
+
+<mat-list>
+  <mat-list-item *ngFor="let hero of heroes">
+    <mat-icon matListIcon>grade</mat-icon>
+    <h3 matLine> {{hero.name}} </h3>
+    <p matLine>
+      <span> {{hero.alias}} </span>
+    </p>
+  </mat-list-item>
+
+</mat-list>

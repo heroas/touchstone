@@ -10,12 +10,14 @@ import { LoginComponent } from './login/login.component';
 import { StartComponent } from './start/start.component';
 import { RegisterComponent } from './register/register.component';
 import { CustomMaterialModule } from './material.module';
+import { MyHeroesComponent } from './my-heroes/my-heroes.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     StartComponent,
-    RegisterComponent
+    RegisterComponent,
+    MyHeroesComponent
   ],
   imports: [
     routing,

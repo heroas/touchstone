@@ -6,7 +6,8 @@ import {
 
   MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
 
-  MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatExpansionModule,MatChipsModule
+  MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatExpansionModule,MatChipsModule,MatDividerModule,MatListModule
+
 
 } from '@angular/material';
 
@@ -37,7 +38,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   MatProgressSpinnerModule,
   MatExpansionModule,
   MatChipsModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatDividerModule,
+  MatListModule
 
   ],
 
@@ -64,7 +67,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
    MatProgressSpinnerModule,
    MatExpansionModule,
    MatChipsModule,
-   MatSnackBarModule
+   MatSnackBarModule,
+   MatDividerModule,
+   MatListModule
 
    ],
 
