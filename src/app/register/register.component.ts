@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AuthenticationService, UserService } from '../_services';
 import { Router, } from '@angular/router';
+import { Hero, User } from '../_models'
 import {matchOtherValidator} from '../_helper'
 
 @Component({
@@ -11,7 +12,7 @@ import {matchOtherValidator} from '../_helper'
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-
+  error = false;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -33,14 +34,26 @@ export class RegisterComponent implements OnInit {
   get f() { return this.registerForm.controls; }
 
   register() {
+    this.error = false;
     if (this.registerForm.invalid) {
-      console.log('invalid')
       console.log(this.registerForm)
       return;
     }
 
-    this.userService.register(this.registerForm.value);
-    this.router.navigate(['login']);
+    let form = this.registerForm.value;
+    let newUser = new User()
+    newUser.firstName = form.fname;
+    newUser.lastName = form.lname;
+    newUser.username = form.username;
+    newUser.password = form.password;
+
+    var response = this.userService.register(newUser);
+
+    if(response != null)
+      this.router.navigate(['login']);
+
+    this.error = true;
+
 
   }
 

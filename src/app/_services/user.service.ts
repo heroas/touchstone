@@ -12,11 +12,20 @@ export class UserService {
     this.users = JSON.parse(localStorage.getItem('users')) || [];
  }
 
-  register(user: User) {
-    console.log(user)
-    user.id = this.users.length + 1;
-    this.users.push(user);
+  register(newUser: User) {
+
+    let filteredUsers = this.users.filter(user => {
+      return user.username === newUser.username
+    });
+
+    if(filteredUsers.length > 0)
+      return null;
+
+
+    newUser.id = this.users.length + 1;
+    this.users.push(newUser);
     localStorage.setItem('users', JSON.stringify(this.users));
+    return newUser;
   }
 
   addHero(hero:Hero){
@@ -45,7 +54,8 @@ export class UserService {
 
     if(!currentUser.heroes)
       currentUser.heroes = []
-      
+    console.log(currentUser)
+
     return currentUser.heroes;
   }
 

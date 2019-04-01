@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../_models'
+import { Hero, User } from '../_models'
 import { UserService,AuthenticationService } from '../_services';
 import { AppComponent } from '../app.component'
 
@@ -16,19 +16,20 @@ export class MyHeroesComponent implements OnInit {
   constructor(root: AppComponent, private userService: UserService,  private authenticationService: AuthenticationService) {
     let currentUser:User;
     this.authenticationService.currentUser.subscribe(x => currentUser = x);
-    console.log(currentUser)
 
-    root.page = currentUser.fname + "'s Heroes"
+    root.page = currentUser.firstName + "'s Heroes"
   }
 
   ngOnInit() {
     var calcTotal = 0;
     this.heroes = this.userService.getHeroes();
-    this.heroes.forEach(function(hero) {
-      calcTotal = calcTotal + hero.price;
-    });
+    if(this.heroes != null && this.heroes.length>0){
+      this.heroes.forEach(function(hero) {
+        calcTotal = calcTotal + hero.price;
+      });
 
-    this.total = calcTotal;
+      this.total = calcTotal;
+    }
   }
 
 }
