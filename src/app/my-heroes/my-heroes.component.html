@@ -1,21 +1,31 @@
-<h2>
-  Your Hired Heroes
-</h2>
-<p *ngIf="heroes.length>0">
-  Totall price:&nbsp;&nbsp; {{total}} <mat-icon>money</mat-icon>
-</p>
+<div>
+  <h2>
+    Your Hired Heroes
+  </h2>
+  <p *ngIf="heroes != undefined">
+    Totall price:&nbsp;&nbsp; {{total}}
+    <mat-icon>money</mat-icon>
+  </p>
 
-<p *ngIf="heroes.length == 0">
-  No heroes Hired!
-</p>
+  <p *ngIf="heroes == undefined">
+    No heroes Hired!
+  </p>
 
-<mat-list>
-  <mat-list-item *ngFor="let hero of heroes">
-    <mat-icon matListIcon>grade</mat-icon>
-    <h3 matLine> {{hero.name}} </h3>
-    <p matLine>
-      <span> {{hero.alias}} </span>
-    </p>
-  </mat-list-item>
+  <mat-list>
+    <mat-list-item *ngFor="let hero of heroes; last as last">
+      <mat-icon matListIcon>grade</mat-icon>
+      <h3 matLine> {{hero.name}} </h3>
+      <p matLine>
+        <span> {{hero.alias}} </span>
+      </p>
+      <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+    </mat-list-item>
+  </mat-list>
 
-</mat-list>
+</div>
+
+<div>
+<mat-checkbox>Discount!</mat-checkbox>
+<mat-checkbox>Discount!</mat-checkbox>
+<mat-checkbox>Discount!</mat-checkbox>
+</div>

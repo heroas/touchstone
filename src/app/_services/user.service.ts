@@ -28,6 +28,19 @@ export class UserService {
     return newUser;
   }
 
+  delete(id: number){
+
+    for (let i = 0; i < this.users.length; i++) {
+        let user = this.users[i];
+        if (user.id === id) {
+            // delete user
+            this.users.splice(i, 1);
+            localStorage.setItem('users', JSON.stringify(this.users));
+            break;
+        }
+    }
+  }
+
   addHero(hero:Hero){
     let currentUser:User;
     this.authenticationService.currentUser.subscribe(x => currentUser = x);
@@ -35,7 +48,7 @@ export class UserService {
     if(!currentUser.heroes)
       currentUser.heroes = []
 
-    currentUser.heroes.push(hero);
+    currentUser.heroes.push(hero)
 
     this.users.splice(this.users.findIndex(function(i){
         return i.id === currentUser.id;
@@ -52,8 +65,9 @@ export class UserService {
     let currentUser:User;
     this.authenticationService.currentUser.subscribe(x => currentUser = x);
 
-    if(!currentUser.heroes)
-      currentUser.heroes = []
+    // if(!currentUser.heroes)
+    //   currentUser.heroes = []
+
     console.log(currentUser)
 
     return currentUser.heroes;

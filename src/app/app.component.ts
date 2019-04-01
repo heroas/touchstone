@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from './_services';
+import { AuthenticationService, UserService } from './_services';
 import { User } from './_models';
 import { Router } from '@angular/router';
 
@@ -16,7 +16,8 @@ export class AppComponent {
 
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private userService: UserService
   ) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
@@ -28,6 +29,11 @@ export class AppComponent {
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
+  }
+
+  deleteAccount(){
+    this.userService.delete(this.currentUser.id);
+    this.logout()
   }
 
   navigate(route: string) {

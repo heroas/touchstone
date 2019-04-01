@@ -6,7 +6,7 @@ import {
 
   MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
 
-  MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatExpansionModule,MatChipsModule,MatDividerModule,MatListModule
+  MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatExpansionModule,MatChipsModule,MatDividerModule,MatListModule,MatCheckboxModule
 
 
 } from '@angular/material';
@@ -40,7 +40,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   MatChipsModule,
   MatSnackBarModule,
   MatDividerModule,
-  MatListModule
+  MatListModule,
+  MatCheckboxModule
 
   ],
 
@@ -69,7 +70,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
    MatChipsModule,
    MatSnackBarModule,
    MatDividerModule,
-   MatListModule
+   MatListModule,
+   MatCheckboxModule
 
    ],
 

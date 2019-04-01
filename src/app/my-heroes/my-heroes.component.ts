@@ -11,7 +11,7 @@ import { AppComponent } from '../app.component'
 export class MyHeroesComponent implements OnInit {
 
   total: number;
-  heroes: [Hero];
+  heroes: any[];
 
   constructor(root: AppComponent, private userService: UserService,  private authenticationService: AuthenticationService) {
     let currentUser:User;
@@ -23,7 +23,8 @@ export class MyHeroesComponent implements OnInit {
   ngOnInit() {
     var calcTotal = 0;
     this.heroes = this.userService.getHeroes();
-    if(this.heroes != null && this.heroes.length>0){
+
+    if(this.heroes != undefined){
       this.heroes.forEach(function(hero) {
         calcTotal = calcTotal + hero.price;
       });

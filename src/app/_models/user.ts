@@ -5,5 +5,5 @@ export class User {
     password: string;
     firstName: string;
     lastName: string;
-    heroes: [Hero];
+    heroes: any[];
 }
