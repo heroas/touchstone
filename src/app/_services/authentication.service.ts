@@ -21,6 +21,7 @@ export class AuthenticationService {
   login(username: string, password: string) {
     console.log(username)
     console.log(password)
+    this.users = JSON.parse(localStorage.getItem('users')) || [];
 
     let filteredUsers = this.users.filter(user => {
       return user.username === username && user.password === password;

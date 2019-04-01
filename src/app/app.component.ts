@@ -12,12 +12,17 @@ export class AppComponent {
   title = 'project-touchstone';
 
   currentUser: User;
+  page:string;
 
   constructor(
       private router: Router,
       private authenticationService: AuthenticationService
   ) {
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+  }
+
+  public setPageTitle(pageName:string){
+    this.page = pageName
   }
 
   logout() {

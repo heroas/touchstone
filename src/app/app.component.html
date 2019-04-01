@@ -8,23 +8,31 @@
 </nav> -->
 
 <div *ngIf="currentUser">
-  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-    <mat-icon>more_vert</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>list</mat-icon>
-      <span>Hero List</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>accessibility_new</mat-icon>
-      <span>My Heroes</span>
-    </button>
-    <button mat-menu-item (click)="logout()">
-      <mat-icon>directions_run</mat-icon>
-      <span>Logout</span>
-    </button>
-  </mat-menu>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>list</mat-icon>
+          <span>Hero List</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>accessibility_new</mat-icon>
+          <span>My Heroes</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>directions_run</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+      <span class="example-spacer"></span>
+      <span>{{page}}</span>
+    </mat-toolbar-row>
+
+  </mat-toolbar>
+
 </div>
 
 

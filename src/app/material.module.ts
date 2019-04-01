@@ -10,6 +10,8 @@ import {
 
 } from '@angular/material';
 
+
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
 
   imports: [
@@ -34,7 +36,8 @@ import {
 
   MatProgressSpinnerModule,
   MatExpansionModule,
-  MatChipsModule
+  MatChipsModule,
+  MatSnackBarModule
 
   ],
 
@@ -60,7 +63,8 @@ import {
 
    MatProgressSpinnerModule,
    MatExpansionModule,
-   MatChipsModule
+   MatChipsModule,
+   MatSnackBarModule
 
    ],
 
