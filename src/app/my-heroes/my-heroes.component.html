@@ -24,8 +24,15 @@
 
 </div>
 
-<div>
-<mat-checkbox>Discount!</mat-checkbox>
-<mat-checkbox>Discount!</mat-checkbox>
-<mat-checkbox>Discount!</mat-checkbox>
+<div style="margin-top:100px;">
+  <label>Discount!</label><input type="checkbox" id="scales" name="scales" (change)="discountChecked(10)">&nbsp;&nbsp;
+  <label>Discount!</label><input type="checkbox" id="scales" name="scales" (change)="discountChecked(20)">&nbsp;&nbsp;
+  <label>Discount!</label><input type="checkbox" id="scales" name="scales" (change)="discountChecked(30)">&nbsp;&nbsp;
 </div>
+
+
+<!-- <div>
+<mat-checkbox id="discount" [(ngModel)]="discount10" (change)="discountChecked(discount10?-10:10)">Discount!</mat-checkbox>&nbsp;&nbsp;
+<mat-checkbox id="discount" [(ngModel)]="discount20" (change)="discountChecked(discount20?-20:20)">Discount!</mat-checkbox>&nbsp;&nbsp;
+<mat-checkbox id="discount" [(ngModel)]="discount30" (change)="discountChecked(discount30?-30:30)">Discount!</mat-checkbox>&nbsp;&nbsp;
+</div> -->
