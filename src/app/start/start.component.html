@@ -7,7 +7,7 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{hero.alias}}
+          {{hero.name}}
         </mat-panel-title>
         <mat-panel-description>
           {{hero.power}}
@@ -15,6 +15,7 @@
       </mat-expansion-panel-header>
 
       <h2>{{hero.name}}</h2>
+      {{hero.alias}}:
       <p>{{hero.description}}</p>
       <p>Price: {{hero.price}}<mat-icon>money</mat-icon><p>
 
