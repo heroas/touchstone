@@ -26,7 +26,6 @@
 * Hire 3 Heroes on the page
   - You can hire heroes by selected a Hero from the expandable list
   - Then pressing the corresponding hire button for that Hero
-* Confirm you get a succesful message for each Hero hired (via snackbar)
 * Make note of the Heroes you hire as you will need them later (Name and Price)
 
 #### Viewing Heroes

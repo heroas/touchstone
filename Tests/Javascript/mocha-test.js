@@ -1,15 +1,21 @@
 const {
   Builder,
   By,
-  Key,
+  Keys,
   until
 } = require('selenium-webdriver');
 const {
   expect
 } = require('chai');
 
+async function asyncForEach(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
+}
+
 describe('Touchstone Test', () => {
-  const driver = new Builder().forBrowser('firefox').build();
+  const driver = new Builder().forBrowser('chrome').build();
   const username = 'HeroAccount';
   const password = '123';
   const heroes = []
@@ -18,12 +24,12 @@ describe('Touchstone Test', () => {
 
 
   });
+  ``
   it('Registration', async () => {
     await driver.get('http://localhost:4200');
-    await driver.sleep(2000)
+    driver.manage().window().maximize()
 
     await driver.wait(until.elementLocated(By.id('registerBtn'))).then(el => el.click());
-    // await driver.findElement(By.id("registerBtn")).click()
 
     await driver.findElement(By.name("fname")).sendKeys('Hero')
     await driver.findElement(By.name("lname")).sendKeys('Yuusha')
@@ -31,13 +37,12 @@ describe('Touchstone Test', () => {
     await driver.findElement(By.name("password")).sendKeys(password)
     await driver.findElement(By.name("cpassword")).sendKeys(password)
     await driver.findElement(By.xpath("//*[contains(text(), 'REGISTER')]")).then(el => el.click());
+    let el = await driver.findElement(By.xpath("//*[contains(text(), 'has been created!')]"));
+    await driver.wait(until.elementIsVisible(el), 10000);
 
-    await driver.wait(until.elementLocated(By.className("mat-simple-snackbar ng-star-inserted")))
-      .then(el => el.getText().then(text => {
-        expect(text).to.equal("User " + username + " has been created!")
-      }));
-
+    await el.getText().then(text => console.log(text))
   });
+
 
   it('Login', async () => {
     const loginBtn = await driver.wait(until.elementLocated(By.id('loginBtn')));
@@ -62,33 +67,43 @@ describe('Touchstone Test', () => {
   });
 
   it('Hiring a Hero', async () => {
+
     for (var i = 0; i < 3; i++) {
       var index = (i + 1).toString()
+      console.log('clicking ' + index)
+
       const baseXpath = "//html/body/section/app-root/div[2]/div/div/div/app-start/mat-accordion/li[" + index + "]"
       var hero = {
         name: "",
         price: ""
       }
       await driver.findElement(By.xpath(baseXpath)).click()
+      await driver.sleep(2000)
+
       await driver.findElement(By.xpath(baseXpath + "/mat-expansion-panel/div/div/h2")).getText().then(text => hero.name = text)
       await driver.findElement(By.xpath(baseXpath + "/mat-expansion-panel/div/div/p[2]")).getText().then(text => hero.price = text.split("money")[0].split(" ")[1])
-      await driver.findElement(By.xpath(baseXpath + "/mat-expansion-panel/div/div/p[3]/mat-action-row/button")).click()
-      var heroConfirmationMessage = "Hero: " + hero.name + " added!"
-      await driver.wait(until.elementLocated(By.className("mat-simple-snackbar ng-star-inserted")))
-        .then(el => el.getText().then(text => {
-          expect(text).to.equal(heroConfirmationMessage)
-        }));
-
-
+      await driver.findElement(By.xpath(baseXpath + "/mat-expansion-panel/div/div/p[3]/mat-action-row/button/span")).then(el => {
+        el.click()
+      })
       heroes.push(hero);
-
     }
 
+    console.log(heroes)
   });
 
   it('Viewing Heroes', async () => {
-    await driver.findElement(By.id("menuBtn")).click()
-    await driver.findElement(By.id("myHeroesBtn")).click()
+    let menu = await driver.findElement(By.id('menuBtn'));
+    await driver.wait(until.elementIsVisible(menu), 10000);
+    await driver.executeScript("arguments[0].scrollIntoView(true)",menu)
+
+    await driver.executeScript("arguments[0].click()",menu)
+
+    let mymenu = await driver.findElement(By.id('myHeroesBtn'));
+    await driver.wait(until.elementIsVisible(mymenu), 10000);
+    await driver.executeScript("arguments[0].click()",mymenu)
+
+
+    await driver.sleep(3000)
     await driver.findElement(By.name("pageName")).getText().then(text => expect(text).to.equal(username + "'s Heroes"))
     await driver.findElements(By.id("heroItem")).then(elements => {
       expect(elements.length).to.equal(heroes.length)
@@ -111,6 +126,7 @@ describe('Touchstone Test', () => {
     await driver.findElements(By.xpath("//input[@type='checkbox']")).then(elements => {
       elements[1].click()
     })
+    await driver.sleep(2000)
 
 
     await driver.findElement(By.id("totalPrice")).getText().then(text => {

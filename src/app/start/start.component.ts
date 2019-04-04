@@ -24,8 +24,8 @@ export class StartComponent implements OnInit {
     this.openSnackBar("Hero: " + hero.name + " added!")
   }
   openSnackBar(message: string) {
-      this.snackBar.open(message, '', {
-        duration: 7000,
+      this.snackBar.open(message, 'Gotcha', {
+        duration: 3000,
       });
     }
 }
