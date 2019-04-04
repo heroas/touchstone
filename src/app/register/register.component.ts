@@ -65,8 +65,8 @@ export class RegisterComponent implements OnInit {
   }
 
   openSnackBar(message: string) {
-    this.snackBar.open(message, 'Gotcha', {
-      duration: 2000,
+    this.snackBar.open(message, '', {
+      duration: 7000,
     });
   }
 

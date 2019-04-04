@@ -2,8 +2,8 @@
   <h2>
     Your Hired Heroes
   </h2>
-  <p *ngIf="heroes != undefined">
-    Totall price:&nbsp;&nbsp; {{total}}
+  <p *ngIf="heroes != undefined" id="totalPrice">
+    Total price: {{total}}
     <mat-icon>money</mat-icon>
   </p>
 
@@ -12,7 +12,7 @@
   </p>
 
   <mat-list>
-    <mat-list-item *ngFor="let hero of heroes; last as last">
+    <mat-list-item *ngFor="let hero of heroes; last as last" id="heroItem">
       <mat-icon matListIcon>grade</mat-icon>
       <h3 matLine> {{hero.name}} </h3>
       <p matLine>

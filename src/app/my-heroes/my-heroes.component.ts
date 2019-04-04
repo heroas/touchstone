@@ -20,7 +20,7 @@ export class MyHeroesComponent implements OnInit {
     let currentUser: User;
     this.authenticationService.currentUser.subscribe(x => currentUser = x);
 
-    root.page = currentUser.firstName + "'s Heroes"
+    root.page = currentUser.username + "'s Heroes"
   }
 
   ngOnInit() {

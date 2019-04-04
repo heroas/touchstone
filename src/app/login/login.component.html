@@ -19,7 +19,7 @@
           </td>
         </tr>
       </table>
-    <button *ngIf="error" mat-flat-button color="warn" (click)="error = !error">Invalid Username or Password</button>
+    <button *ngIf="error" mat-flat-button color="warn" (click)="error = !error" class="errorBtn">Invalid Username or Password</button>
   </mat-card-content>
   <mat-card-actions>
     <button id="loginBtn" mat-raised-button (click)="login()" color="primary">LOGIN</button>
