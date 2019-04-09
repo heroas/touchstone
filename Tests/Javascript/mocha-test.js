@@ -15,7 +15,7 @@ async function asyncForEach(array, callback) {
 }
 
 describe('Touchstone Test', () => {
-  const driver = new Builder().forBrowser('chrome').build();
+  const driver = new Builder().forBrowser('firefox').build();
   const username = 'HeroAccount';
   const password = '123';
   const heroes = []
