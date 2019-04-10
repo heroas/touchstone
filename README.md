@@ -1,5 +1,5 @@
 # Touchstone - a simple UI Automation Test
-
+<img src="touchstone.png" alt="drawing" width="100"/>
 
 ## Test Parts:
 
@@ -11,32 +11,36 @@
 
 
 #### Registration
-* Go to Registration page
+* Navigate to Registration page
 * Fill out form with information
 * Complete Registration
-* Confirm registration was successful (via snackbar)
+* Confirm registration was successful **(via snackbar)**
+  * Snackbar message will be: ``` User [Username] has been created! ```
 
 #### Login
 * Try to login with incorrect credentials
-  - Confirm error message populates as '''Invalid username or password'''
-* Try to login using account created from Registration step
-* Confirm you successfully logged in using url (/start)
+  - Confirm error message populates as ```Invalid Username or Password```
+* Login using account created from ```Registration``` step
+* Confirm you successfully logged in using the **URL**
+  * URL should contain ```start```
 
 #### Hiring a Hero
-* Hire 3 Heroes on the page
+* Hire any 3 Heroes on the page
   - You can hire heroes by selected a Hero from the expandable list
-  - Then pressing the corresponding hire button for that Hero
-* Make note of the Heroes you hire as you will need them later (Name and Price)
+  - Then pressing the corresponding ```Hire``` button for that Hero
+* Make note of the heroes you hire as you will need them later **(Name and Price)**
 
 #### Viewing Heroes
-* Navigate to the 'My Heroes' Page by selecting it from the menu in top left corner of screen
+* Navigate to the **My Heroes** Page by selecting it from the menu in top left corner of screen
 * Confirm the screen successfully recognizes your username (via toolbar e.g Tester's Heroes)
 * Confirm that there are 3 Heroes listed on the page
-  - Ensure the Heroes listed match the Heroes you added in Hiring a Hero step
-  - Check to see if the "Total Price" listed on the page is equivelent to the total price of the Heroes you added in Hiring a Hero step
-* Select the middle "Discount!" Checkbox
-  - Confirm that when selected the checkbox removes 20 from your total Price
+  - Ensure the heroes listed match the heroes you added in ```Hiring a Hero``` step
+  - Check to see if the ```Total Price``` listed on the page is equivelent to the total price of the heroes you added in ```Hiring a Hero``` step
+* Select the middle ```Discount!``` Checkbox
+  - Confirm that when selected the checkbox removes ```20``` from ```Total Price```
 
 
 ### The End
 * Thats it!
+* ***touchstone (touch·​stone | \ ˈtəch-ˌstōn  \)***
+  *  A test or criterion for determining the quality or genuineness of a thing
