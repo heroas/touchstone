@@ -44,3 +44,10 @@
 * Thats it!
 * ***touchstone (touch·​stone | \ ˈtəch-ˌstōn  \)***
   *  A test or criterion for determining the quality or genuineness of a thing
+
+### Contribution
+* Fork it
+* Use selenium or w.e to make a script that will automate the test parts
+* Put it in its own directory under the **Test** directory
+    * it should be named something descriptive
+* Submit a pull request
